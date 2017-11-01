@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "375117403913",
+    "firebase_url": "https://fir-basic2171031.firebaseio.com",
+    "project_id": "fir-basic2171031",
+    "storage_bucket": "fir-basic2171031.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375117403913:android:8d098d7acdc8d17a",
+        "android_client_info": {
+          "package_name": "com.example.mcbud.firebase_basic2_171031"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375117403913-p4n2gr3o1pnhcqm9srre4vaaot7tiuar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mcbud.firebase_basic2_171031",
+            "certificate_hash": "0f7d9e2e9913ae37f9f7b8ec76508a6ff13555f3"
+          }
+        },
+        {
+          "client_id": "375117403913-oc4perv9krb5i3ovqkdkjgu1lp5tj97r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhFBW0nvkMj0LMfRrKC6au46pL84Uwwc4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375117403913-oc4perv9krb5i3ovqkdkjgu1lp5tj97r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
