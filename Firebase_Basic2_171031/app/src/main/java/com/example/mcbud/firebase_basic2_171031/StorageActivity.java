@@ -83,7 +83,7 @@ public class StorageActivity extends AppCompatActivity implements UserAdapter.Ca
         Log.d("jsonstring", "--------------------------------------------------------"+json);
         // 레트로핏 선언
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.103:8090/")
+                .baseUrl("http://192.168.0.71:8090/")
                 .build();
         // 인터페이스와 결합
         IRetro service = retrofit.create(IRetro.class);

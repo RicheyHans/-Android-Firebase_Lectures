@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FirebaseChatting_171102</string>
+    <string name="title_activity_room_list">RoomListActivity</string>
+    <string name="roomList">대화방 목록</string>
+    <string name="roomListEnter">대화방 명 입력</string>
+    <string name="signUp">회원가입</string>
+    <string name="id">아이디</string>
+    <string name="name">이름</string>
+    <string name="email">이메일</string>
+    <string name="birthday">생년월일</string>
+    <string name="gender">성별</string>
+    <string name="phone">전화번호</string>
+    <string name="pw1">비밀번호</string>
+    <string name="pw2">비밀번호 확인</string>
+    <string name="ok">확인</string>
+    <string name="signin">로그인</string>
+
+
+</resources>
