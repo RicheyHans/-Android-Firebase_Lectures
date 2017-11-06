@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "599123091452",
+    "firebase_url": "https://fir-miniproject-add10.firebaseio.com",
+    "project_id": "fir-miniproject-add10",
+    "storage_bucket": "fir-miniproject-add10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599123091452:android:acf8b3bcf8119dba",
+        "android_client_info": {
+          "package_name": "richey.badwords.flaming.the.firebaseminiproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599123091452-pkh9rth2ugda78plpk4hfp1di591mj66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "richey.badwords.flaming.the.firebaseminiproject",
+            "certificate_hash": "0f7d9e2e9913ae37f9f7b8ec76508a6ff13555f3"
+          }
+        },
+        {
+          "client_id": "599123091452-l8qnr0mfruar7u09bff9vi5litp5s4i5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDobAdvsIaRa8T5PleQuLCyebgtGQpgHmM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599123091452-l8qnr0mfruar7u09bff9vi5litp5s4i5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

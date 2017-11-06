@@ -19,9 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SigninActivity extends AppCompatActivity {
+
     FirebaseAuth auth;
     FirebaseDatabase database;
     DatabaseReference userRef;
+
     private EditText editEmail;
     private EditText editPassword;
 
