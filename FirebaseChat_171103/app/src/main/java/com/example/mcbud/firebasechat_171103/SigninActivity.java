@@ -29,22 +29,21 @@ public class SigninActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         // 파이어베이스 모듈 사용하기
         auth = FirebaseAuth.getInstance();
-        super.onCreate(savedInstanceState);
-
-        if(PreferenceUtil.getStringValue(this,"auto_sign").equals("true")){
-            String email = PreferenceUtil.getStringValue(this, "email");
-            String password = PreferenceUtil.getStringValue(this, "password");
+        if(PreferenceUtil.getString(this,"auto_sign").equals("true")){
+            String email = PreferenceUtil.getString(this,"email");
+            String password = PreferenceUtil.getString(this,"password");
             signin(email, password);
+        }else {
+            setContentView(R.layout.activity_signin);
+
+            database = FirebaseDatabase.getInstance();
+            // 데이터베이스 user 레퍼런스 생성
+            userRef = database.getReference("user");
+            initView();
         }
-
-        setContentView(R.layout.activity_signin);
-
-        database = FirebaseDatabase.getInstance();
-        // 데이터베이스 user 레퍼런스 생성
-        userRef = database.getReference("user");
-        initView();
     }
 
     private void signin(final String email, final String password){
@@ -54,20 +53,20 @@ public class SigninActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             FirebaseUser fUser = auth.getCurrentUser();
-                            if(fUser.isEmailVerified()){
-                                // preference에 값을 저장
-                                PreferenceUtil.setValue(getBaseContext(), "user_id",fUser.getUid());
-                                PreferenceUtil.setValue(getBaseContext(), "email",email);
-                                PreferenceUtil.setValue(getBaseContext(), "password",password);       // 통상적으로 token을 저장함
-                                PreferenceUtil.setValue(getBaseContext(), "auto_sign","true");
+                            //if(fUser.isEmailVerified()){
+                            // preference에 값을 저장
+                            PreferenceUtil.setValue(getBaseContext(), "user_id",email.replace(".","_"));
+                            PreferenceUtil.setValue(getBaseContext(), "email",  email);
+                            PreferenceUtil.setValue(getBaseContext(), "password",password);
+                            PreferenceUtil.setValue(getBaseContext(), "auto_sign","true");
 
-                                // 로그인진행
-                                Intent intent = new Intent(SigninActivity.this, RoomListActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }else{
-                                DialogUtil.showDialog("이메일을 확인하셔야 합니다!",SigninActivity.this, false);
-                            }
+                            // 로그인진행
+                            Intent intent = new Intent(SigninActivity.this, RoomListActivity.class);
+                            startActivity(intent);
+                            finish();
+                            //}else{
+                            //    DialogUtil.showDialog("이메일을 확인하셔야 합니다!",SigninActivity.this, false);
+                            //}
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -79,8 +78,8 @@ public class SigninActivity extends AppCompatActivity {
     }
 
     public void signin(View view) {
-        final String email = editEmail.getText().toString();
-        final String password = editPassword.getText().toString();
+        String email = editEmail.getText().toString();
+        String password = editPassword.getText().toString();
         signin(email, password);
     }
 

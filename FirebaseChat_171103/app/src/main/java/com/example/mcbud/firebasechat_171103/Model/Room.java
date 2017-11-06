@@ -2,6 +2,8 @@ package com.example.mcbud.firebasechat_171103.Model;
 
 import android.widget.TextView;
 
+import com.google.firebase.database.Exclude;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -20,10 +22,9 @@ public class Room {
     public long creation_time;
     public List<User> member;
 
+    @Exclude
     public String getFriendString() {
-        List<User> members = new ArrayList<>();
         String friendString = "";
-
         if(member != null && member.size() > 0) {
             for (User friend : member) {
                 friendString += ", " + friend.email;

@@ -20,19 +20,18 @@ public class PreferenceUtil {
         editor.putString(key, value);
         editor.commit();
     }
-
     public static void setValue(Context context, String key, long value){
         SharedPreferences.Editor editor = getPreference(context).edit();
         editor.putLong(key, value);
+        //editor.remove(key); 삭제하기
         editor.commit();
     }
 
-    public static String getStringValue(Context context, String key){
-        return getPreference(context).getString(key, "");
+    public static String getString(Context context, String key){
+        return getPreference(context).getString(key,"");
     }
 
-    public static long getLongValue(Context context, String key){
-        return getPreference(context).getLong(key, 0);
-
+    public static Long getLong(Context context, String key){
+        return getPreference(context).getLong(key,0);
     }
 }

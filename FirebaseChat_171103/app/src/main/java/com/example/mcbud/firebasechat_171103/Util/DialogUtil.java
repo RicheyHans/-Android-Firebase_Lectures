@@ -12,23 +12,19 @@ import com.example.mcbud.firebasechat_171103.SignupActivity;
 
 public class DialogUtil {
 
-   public static void showDialog(String msg, final Activity activity, final boolean activityFinish){
+    public static void showDialog(String msg, final Activity activity, final boolean activityFinish){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity);
-        dialogBuilder.setTitle("NOTICE");
-
+        dialogBuilder.setTitle("Notice");
         dialogBuilder.setMessage(msg);
-
         dialogBuilder.setCancelable(false);
-        dialogBuilder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                if(activityFinish) {
+                if(activityFinish)
                     activity.finish();
-                }
             }
         });
-
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }

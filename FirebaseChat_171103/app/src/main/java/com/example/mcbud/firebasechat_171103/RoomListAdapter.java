@@ -17,8 +17,7 @@ import java.util.List;
  * Created by mcbud on 2017-11-03.
  */
 
-public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.Holder> {
-
+public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.Holder>{
     List<Room> data = new ArrayList<>();
 
     public void setDataAndRefresh(List<Room> data){
@@ -64,5 +63,4 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.Holder
             });
         }
     }
-
 }

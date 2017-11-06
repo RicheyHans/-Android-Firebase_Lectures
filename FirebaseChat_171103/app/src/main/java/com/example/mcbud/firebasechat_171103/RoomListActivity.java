@@ -29,7 +29,6 @@ import java.util.Map;
 
 public class RoomListActivity extends AppCompatActivity {
 
-
     // 파이어베이스 데이터베이스 연결
     FirebaseDatabase database;
     DatabaseReference userRef;
@@ -65,27 +64,22 @@ public class RoomListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<Room> data = new ArrayList<>();
-                for(DataSnapshot snapshot: dataSnapshot.getChildren() ){
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Room room = new Room();
                     if(snapshot.hasChild("member")){
-
                         Map map = (HashMap)snapshot.getValue();
-                        room.id = (String)map.get("id");
-                        room.title = (String)map.get("title");
+                        room.id = (String) map.get("id");
+                        room.title = (String) map.get("title");
                         room.member = new ArrayList<>();
-
-                        // ...
+                        //...
                         DataSnapshot member = snapshot.child("member");
                         for(DataSnapshot item : member.getChildren()){
                             User user = item.getValue(User.class);
                             room.member.add(user);
                         }
-
-
-                    }else{
+                    }else {
                         room = snapshot.getValue(Room.class);
                     }
-
                     data.add(room);
                 }
                 adapter.setDataAndRefresh(data);
@@ -125,16 +119,15 @@ public class RoomListActivity extends AppCompatActivity {
                     roomRef.child(roomKey).setValue(room);
                     // user 에 추가
                     // preference 에서 값 가져오기
-                    String user_id = PreferenceUtil.getStringValue(getBaseContext(), "user_id");
+                    String user_id = PreferenceUtil.getString(getBaseContext(), "user_id");
                     userRef.child(user_id).child("chatting_room").child(roomKey).setValue(room);
                     popup.setVisibility(View.GONE);
 
-                    // 채팅방에 멤버 추가하기
+                    // 채팅방에 member 추가하기
                     User user = new User();
                     user.id = user_id;
-                    user.email = PreferenceUtil.getStringValue(getBaseContext(), "email");
-                    roomRef.child(roomKey).child("member").child(user_id);
-
+                    user.email = PreferenceUtil.getString(getBaseContext(), "email");
+                    roomRef.child(roomKey).child("member").child(user_id).setValue(user);
                 }
             }
         });
@@ -143,10 +136,11 @@ public class RoomListActivity extends AppCompatActivity {
     private void initView() {
         addRoom = findViewById(R.id.fab);
         popup = findViewById(R.id.popup);
+        editTitle = (EditText) findViewById(R.id.editTitle);
+
         recycler = (RecyclerView) findViewById(R.id.recycler);
         adapter = new RoomListAdapter();
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        editTitle = (EditText) findViewById(R.id.editTitle);
     }
 }

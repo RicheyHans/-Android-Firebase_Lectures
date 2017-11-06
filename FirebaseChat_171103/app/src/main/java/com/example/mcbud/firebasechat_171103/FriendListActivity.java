@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 public class FriendListActivity extends AppCompatActivity {
-
     RelativeLayout popup;
     FloatingActionButton fab;
 
@@ -36,6 +35,5 @@ public class FriendListActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

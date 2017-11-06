@@ -7,6 +7,7 @@
     tools:context="com.example.mcbud.firebasechat_171103.RoomActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -47,37 +48,35 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/msgList"
-        android:layout_width="368dp"
-        android:layout_height="439dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-    </android.support.v7.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <RelativeLayout
         android:id="@+id/popup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ccffffff">
+        android:background="#ccffffff"
+        android:elevation="2dp"
+        android:padding="20dp"
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/editEmail"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="19dp"
-            android:layout_marginRight="19dp"
             android:layout_toLeftOf="@+id/btnAdd"
             android:layout_toStartOf="@+id/btnAdd"
             android:ems="10"
             android:hint="Your Friend's Email"
-            android:inputType="textPersonName" />
+            android:inputType="textEmailAddress" />
 
         <Button
             android:id="@+id/btnAdd"
@@ -86,8 +85,6 @@
             android:layout_alignBottom="@+id/editEmail"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="19dp"
-            android:layout_marginRight="19dp"
             android:text="Add" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
