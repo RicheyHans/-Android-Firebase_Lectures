@@ -1,5 +1,6 @@
 package com.example.mcbud.firebasemessage_171106;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -74,9 +75,14 @@ public class MainActivity extends AppCompatActivity {
                     // node 가 있으면
                     if(dataSnapshot.getChildrenCount() > 0){
                         String key = dataSnapshot.getKey();
-                        User user = dataSnapshot.getValue(User.class);
+                        // 내 노드 밑에 친구 추가하기
+                        User friend = dataSnapshot.getValue(User.class);
                         friendRef.child(PreferenceUtil.getUserId(getBaseContext()))
-                                .child(key).setValue(user);
+                                .child(key).setValue(friend);
+                        User my = new User();
+
+                        my.id = PreferenceUtil.getUserId(getBaseContext());
+                        friendRef.child(friend.id).child(PreferenceUtil.getUserId(getBaseContext())).setValue(my);
                     }else{
 
                     }
@@ -105,8 +111,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_add_friend:
                 addLayout.setVisibility(View.VISIBLE);
                 break;
-            case R.id.menu_test:
-                Toast.makeText(this,"menu clicked!", Toast.LENGTH_SHORT).show();
+                // 로그아웃
+            case R.id.menu_signout:
+                PreferenceUtil.setValue(this, "auto_sign", "");
+                Intent intent = new Intent(this, SigninActivity.class);
+                startActivity(intent);
+                finish();
                 break;
         }
         return true;
