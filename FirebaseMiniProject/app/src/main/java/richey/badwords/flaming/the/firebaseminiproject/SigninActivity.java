@@ -1,5 +1,6 @@
 package richey.badwords.flaming.the.firebaseminiproject;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,8 @@ public class SigninActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.hide();
 
+        initView();
+
     }
 
     private void signin(final String email, final String password){
@@ -39,7 +42,8 @@ public class SigninActivity extends AppCompatActivity {
     }
 
     public void signup(View view){
-        
+        Intent intent = new Intent(this, SignupActivity.class);
+        startActivity(intent);
     }
 
     private void initView(){

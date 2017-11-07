@@ -113,12 +113,11 @@ public class SignupActivity extends AppCompatActivity {
                 });
     }
 
-
-
     boolean checkEmail = false;
     boolean checkPassword = false;
     boolean checkRepeat = false;
     boolean checkName = false;
+
     private void enableSignupButton(){
         if(checkEmail && checkPassword && checkRepeat && checkName){
             btnSignup.setEnabled(true);

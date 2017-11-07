@@ -55,9 +55,12 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.Holder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+
                     Intent intent = new Intent(view.getContext(), ChatActivity.class);
                     // 채팅할 친구의 아이디를 전달한다(authenticication 에 저장된 UID?)
                     intent.putExtra("friend_id", friend.id);
+                    intent.putExtra("chat_id", friend.chat_id);
                     view.getContext().startActivity(intent);
                 }
             });

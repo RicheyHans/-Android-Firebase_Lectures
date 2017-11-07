@@ -71,7 +71,7 @@ public class SigninActivity extends AppCompatActivity {
 
 
                             // 두 번째 로그인 할 때 부터 자동 로그인 가능하도록 함
-                            PreferenceUtil.setValue(getBaseContext(), "auto_sign","false");
+                            PreferenceUtil.setValue(getBaseContext(), "auto_sign","true");
 
                             // 로그인진행
                             Intent intent = new Intent(SigninActivity.this, MainActivity.class);
