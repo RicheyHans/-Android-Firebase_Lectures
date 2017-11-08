@@ -5,6 +5,9 @@
     <string name="email_address">E-mail Address</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
-
+    <string name="post">POST</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="subject">Subject</string>
+    <string name="content">Just write your things..</string>
 
 </resources>

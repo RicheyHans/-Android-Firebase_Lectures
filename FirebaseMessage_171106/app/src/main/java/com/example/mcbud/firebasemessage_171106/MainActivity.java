@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     RelativeLayout addLayout;
     EditText editEmail;
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void init() {
+
         setContentView(R.layout.activity_main);
         database = FirebaseDatabase.getInstance();
         userRef = database.getReference("user");
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         });
         initView();
     }
+
     // 이메일로 친구 검색하기
     public void addFriend(View view){
         progressBar.setVisibility(View.VISIBLE);
