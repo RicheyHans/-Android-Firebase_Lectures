@@ -23,21 +23,29 @@ import richey.badwords.flaming.the.firebaseminiproject.Util.DialogUtil;
 import richey.badwords.flaming.the.firebaseminiproject.Util.PreferenceUtil;
 
 public class PostActivity extends AppCompatActivity {
-
+    // firebase 내 article 생성 용도
     FirebaseDatabase database;
     DatabaseReference userRef;
     String myId;
 
+    // post 버튼 실행 시 article 내 날짜 데이터 변수
+    String temp, year, month, day, time;
+    String subject;
+    String content;
+
+    // 화면 레이아웃, 프로그레스 바
     ActionBar actionBar;
     FrameLayout progressLayout;
     ProgressBar progressBar;
 
+    // 텍스트, 버튼
     TextView textDate;
     Button btnPost;
     Button btnImg;
     EditText editSubject;
     EditText editContent;
 
+    // postActivity 상단 날짜, 시간 출력
     Calendar calendar;
     SimpleDateFormat df;
     String formattedDate;
@@ -81,18 +89,24 @@ public class PostActivity extends AppCompatActivity {
     public void post(View view){
         progressLayout.setVisibility(View.VISIBLE);
 
-        String temp = textDate.getText()+"";
-        String year = temp.substring(0,4);
-        String month = temp.substring(5,7);
-        String day = temp.substring(8,10);
-        String time = temp.substring(11,19);
+        getArticle();
+        DialogUtil.showDialog("Post Completed!",PostActivity.this, true);
+    }
 
-        String subject = editSubject.getText().toString();
-        String content = editContent.getText().toString();
+    private void getArticle(){
+        /*
+           Subject, Content 공백 체크
+         */
+        temp = textDate.getText()+"";
+        year = temp.substring(0,4);
+        month = temp.substring(5,7);
+        day = temp.substring(8,10);
+        time = temp.substring(11,19);
+
+        subject = editSubject.getText().toString();
+        content = editContent.getText().toString();
 
         Article article = new Article(year, month, day, time, subject, content);
         userRef.child(myId).child("article").child(formattedDate+"_"+System.currentTimeMillis()).setValue(article);
-
-        DialogUtil.showDialog("Post Completed!",PostActivity.this, true);
     }
 }
