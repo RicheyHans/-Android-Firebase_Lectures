@@ -35,6 +35,7 @@ public class SignupActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     DatabaseReference userRef;
+    DatabaseReference articleRef;
 
     boolean checkEmail = false;
     boolean checkPassword = false;
@@ -178,6 +179,5 @@ public class SignupActivity extends AppCompatActivity {
         // 데이터베이스 내 user 데이터베이스 생성
         userRef = database.getReference("user");
     }
-
 
 }

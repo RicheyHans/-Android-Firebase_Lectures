@@ -9,5 +9,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="subject">Subject</string>
     <string name="content">Just write your things..</string>
+    <string name="date">Date</string>
+    <string name="image">IMG</string>
 
 </resources>
