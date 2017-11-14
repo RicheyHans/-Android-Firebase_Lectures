@@ -19,3 +19,7 @@ Android Studio Firebase and RxJAVA Lectures and exampls
 ### RxJAVA
 
 ##### #Lecture 01(171114)
+  * Lamda JAVA example [link](https://github.com/RicheyHans/-Android-Firebase_Lectures/tree/master/Lamda_JavaExample_171114)
+  * RxJAVA basic JAVA example [link](https://github.com/RicheyHans/-Android-Firebase_Lectures/tree/master/RxAndroid_JavaExample_171114)
+  * RxJAVA android example 01 [link](https://github.com/RicheyHans/-Android-Firebase_Lectures/tree/master/RxAndroidBasic_171114)
+  * RxJAVA android example 02 [link](https://github.com/RicheyHans/-Android-Firebase_Lectures/tree/master/RxAndroidBasic_02_171114)
